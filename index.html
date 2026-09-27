@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quest Points - maak taken, verdien XP en voltooi random sidequests.">
+  <title>Quest Points</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">Q</div>
+        <div>
+          <h1>Quest Points</h1>
+          <p>Maak je dag een game.</p>
+        </div>
+      </div>
+      <button id="resetBtn" class="ghost-btn">Reset</button>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">JOUW PROGRESS</span>
+        <div class="xp-row">
+          <strong id="xpValue">0</strong>
+          <span>XP</span>
+        </div>
+        <div class="level-line">
+          <span id="levelValue">Level 1</span>
+          <span id="progressText">0 / 100 XP</span>
+        </div>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+      <div class="level-badge" id="levelBadge">1</div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>Open quests</span><strong id="openCount">0</strong></div>
+      <div class="stat"><span>Voltooid</span><strong id="doneCount">0</strong></div>
+      <div class="stat"><span>Sidequests</span><strong id="sideCount">0</strong></div>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">QUESTS</span>
+            <h2>Jouw taken</h2>
+          </div>
+          <button id="randomTaskBtn" class="secondary-btn">🎲 Random taak</button>
+        </div>
+
+        <form id="taskForm" class="add-form">
+          <input id="taskInput" maxlength="100" autocomplete="off" placeholder="Bijv. bureau opruimen..." required>
+          <select id="pointsInput" aria-label="Aantal XP">
+            <option value="5">5 XP</option>
+            <option value="10" selected>10 XP</option>
+            <option value="20">20 XP</option>
+            <option value="50">50 XP</option>
+          </select>
+          <button class="primary-btn" type="submit">+ Toevoegen</button>
+        </form>
+
+        <div id="taskList" class="task-list"></div>
+      </section>
+
+      <aside class="panel sidequest-panel">
+        <span class="eyebrow">SIDEQUEST</span>
+        <h2>Random missie</h2>
+        <div id="sidequestBox" class="sidequest-box">
+          <div class="quest-icon">?</div>
+          <p>Klik op de knop en ontdek je volgende missie.</p>
+        </div>
+        <button id="sidequestBtn" class="primary-btn full">🎲 Nieuwe sidequest</button>
+        <button id="completeSideBtn" class="secondary-btn full" disabled>✓ Sidequest voltooid</button>
+      </aside>
+    </div>
+
+    <section class="panel random-panel">
+      <div>
+        <span class="eyebrow">SNELLE ACTIE</span>
+        <h2>Geen idee wat je moet doen?</h2>
+        <p>Laat Quest Points een gewone taak voor je kiezen.</p>
+      </div>
+      <button id="doRandomBtn" class="primary-btn">🎯 Kies voor mij</button>
+    </section>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
